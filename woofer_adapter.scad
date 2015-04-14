@@ -4,7 +4,7 @@ include <elbow.scad>;
 //include <cradle.scad>;
 
 //lx($fn=200);
-//woofer_adapter();
+woofer_adapter();
 //woofer_assembly();
 //woofer_section();
 //woofer_assembly();
@@ -24,7 +24,7 @@ woofer_post_height=
   woofer_ring_height
   -woofer_ring_frame_inset
   +fullrange_above_woofer
-  -fullrange_pipe_interior_radius;
+  -fullrange_pipe_inner_radius;
 
 connector_width=22;
 woofer_ring_connector_length=
@@ -39,10 +39,6 @@ woofer_ring_wire_hole_x_offset=
     fullrange_frame_to_pipe+
     fullrange_pipe_length/2;
 woofer_ring_wire_hole_z_offset=-14;
-
-woofer_post_peg_thickness=5/16*m-woofer_ring_wire_hole_radius-.1;
-woofer_post_peg_height=15;
-woofer_post_key_size=[10,2.2,2];
 
 module woofer_adapter() {
   //%lx($fn=220);
@@ -65,7 +61,6 @@ module woofer_less_lx() {
     woofer_less_hole();
     lx($fn=180);
   }
-  woofer_post_peg_and_key();
 }
 
 module woofer_less_hole() {
@@ -88,28 +83,6 @@ module connector_and_post() {
     woofer_post();
   translate([-2,0,0]) // for bottom chanfer on ring
     woofer_connector();
-}
-
-module woofer_post_peg_and_key() {
-  translate([
-    woofer_ring_wire_hole_x_offset,
-    0,
-    woofer_post_height-fullrange_pipe_interior_radius-fullrange_pipe_thickness
-  ]) {
-    woofer_post_peg();
-    woofer_post_key();
-    mirror([1,0,0])
-      woofer_post_key();
-  }
-}
-
-module woofer_post_peg($fn=30) {
-  hollow_cylinder(ir=woofer_ring_wire_hole_radius, t=woofer_post_peg_thickness, h=woofer_post_peg_height);
-}
-
-module woofer_post_key() {
-  translate([woofer_ring_wire_hole_radius,-woofer_post_key_size[1]/2,0])
-    cube(size=woofer_post_key_size);  
 }
 
 module woofer_wire_hole() {

@@ -3,7 +3,7 @@ include <util.scad>;
 
 //lx($fn=200);
 //fullrange($fn=200);
-//fullrange_pipe($fn=200);
+//fullrange_pipe(inner_tol=-1, $fn=200);
 //woofer($fn=200);
 //woofer_pipe($fn=200);
 //logo(font="Liberation Sans:style=Bold");
@@ -15,14 +15,17 @@ m=25.4;
 // Tried at 2 for second prototype
 frame_diameter_tolerance=1.4;
 // Pipes are differenced with rings mounted on exterior on one end, and diffuser or stand mounted on interior on other
-pipe_tolerance=0;
 // The frame of the woofer is tapered. This has to be big enough so that the frame fits into coupler
 gap_woofer_frame_pipe_top=17;
 
-fullrange_pipe_interior_radius=77.3/2-pipe_tolerance;
-fullrange_pipe_thickness=5.8+2*pipe_tolerance;
-fullrange_pipe_outer_radius=fullrange_pipe_interior_radius+fullrange_pipe_thickness;
+//fullrange_pipe_radius_tol=.5;
+fullrange_pipe_thickness=5.9;
+fullrange_pipe_inner_radius=77.4/2;
+fullrange_pipe_outer_radius=fullrange_pipe_inner_radius+fullrange_pipe_thickness;
 fullrange_pipe_length=5*m;
+fullrange_pipe_groove_width=2.2;
+fullrange_pipe_groove_depth=2.2;
+fullrange_pipe_hole_radius=5/16*m;
 
 fullrange_frame_diameter=97.7+frame_diameter_tolerance;
 fullrange_frame_radius=fullrange_frame_diameter/2;
@@ -45,7 +48,7 @@ woofer_pipe_thickness=6.9;
 woofer_pipe_outer_radius=woofer_pipe_inner_radius+woofer_pipe_thickness;
 woofer_pipe_length=31*m;
 
-logo_text="LX";
+logo_text="lx";
 
 module lx() {
   fullrange();
@@ -83,12 +86,40 @@ module woofer() {
     coupler();
 }
 
-module fullrange_pipe() {
-  abs_pipe(
-    r=fullrange_pipe_interior_radius,
-    t=fullrange_pipe_thickness,
-    h=fullrange_pipe_length
-  );
+module fullrange_pipe(inner_tol=0, outer_tol=0) {
+  difference() {
+    abs_pipe(
+      r=fullrange_pipe_inner_radius-inner_tol,
+      t=fullrange_pipe_thickness+inner_tol+outer_tol,
+      h=fullrange_pipe_length
+    );
+    //Slot
+    translate([
+      fullrange_pipe_outer_radius+tol-fullrange_pipe_groove_depth,
+      -fullrange_pipe_groove_width/2,
+      0])
+    fullrange_pipe_slot();
+    //Top slot
+    translate([0,-fullrange_pipe_groove_width/2,fullrange_pipe_length])
+      rotate([0,90,0])
+       fullrange_pipe_slot();
+    //Bottom slot
+    translate([0,-fullrange_pipe_groove_width/2,fullrange_pipe_groove_depth])
+      rotate([0,90,0])
+       fullrange_pipe_slot();
+   //Hole
+    translate([fullrange_pipe_inner_radius,0,fullrange_pipe_length/2])
+      rotate([0,90,0])
+        cylinder(r=fullrange_pipe_hole_radius, h=50, center=true);
+  }
+}
+
+module fullrange_pipe_slot() {
+    cube(size=[
+      fullrange_pipe_groove_width,
+      fullrange_pipe_groove_depth,
+      fullrange_pipe_length
+    ]);
 }
 
 module woofer_pipe() {
@@ -116,5 +147,5 @@ module driver(
 
 module logo(text=logo_text, size=1, height=1, font, spacing) {
   linear_extrude(height=height, center=false)
-    text(text=logo_text, halign="center", valign="center", size=size, font=font, spacing=spacing);
+    text(text=text, halign="center", valign="center", size=size, font=font, spacing=spacing);
 }

@@ -1,10 +1,10 @@
-include <util.scad>;
+//include <util.scad>;
 include <lx.scad>;
 
 ring_height=42;
 ring_width=12;
 ring_distance_above_frame=3;
-ring_interior_radius=fullrange_frame_radius - fullrange_frame_width_at_mounting_holes;
+ring_inner_radius=fullrange_frame_radius - fullrange_frame_width_at_mounting_holes;
 
 fullrange_adapter($fn=120);
 //ring_positioned($fn=120);
@@ -29,7 +29,7 @@ module ring_positioned() {
 
 module ring_vented() {
   difference() {
-    chanfered_ring(ir=ring_interior_radius, w=ring_width, h=ring_height);
+    chanfered_ring(ir=ring_inner_radius, w=ring_width, h=ring_height);
     radial_array(n=4)
       vent_quartered();
   }
