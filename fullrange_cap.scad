@@ -3,12 +3,13 @@ include <lx.scad>;
 fullrange_cap($fn=120);
 //cap_less_logo($fn=120);
 //cap_angled($fn=120);
+//cap_vent();
 
 cap_height=24;
 cap_rim_thickness=3;
 cap_rim_height=16;
 cap_inset=5;
-cap_logo_size=15;
+cap_logo_size=30;
 cap_angle=6;
 
 module fullrange_cap() {
@@ -52,11 +53,23 @@ module cap_rimmed() {
 }
 
 module cap_less_logo() {
+  sf=1.65;
   difference() {
     cap();
-    rotate([0,0,90])
-      logo(text="LXmini", size=cap_logo_size, height=100, font="Liberation Sans:style=Bold", spacing=1);
+    scale(sf)
+      cap_vent();
+    cylinder(r=10, h=100, center=true);
+//    translate([-5.8*cap_logo_size,-5.45*cap_logo_size,0])
+//    grid(20, 20, cap_logo_size+3)
+//      rotate([0,0,90])
+//        logo(text="X", size=cap_logo_size, height=100, font="Liberation Sans:style=Bold", spacing=.5);
   }
+}
+
+module cap_vent() {
+  linear_extrude(height = 20, center=true, scale=.7, twist = 90)
+    translate([-33.7,-30.2])
+     #import(file="images/45insert.dxf", convexity=8);
 }
 
 module cap() {

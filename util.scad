@@ -9,7 +9,9 @@
 //cylinder(r=10,h=40);
 //chanfered_cylinder(h=40, t=20, c3=[2,2], center=false, $fn=120);
 //beveled_cube(size=[30,30,5], radius=5, chanfer=[1,1], $fn=120);
-
+//grid([[0:1:10],[1:1:1],[1:1:1]]) {
+//  cube([.1,.1,.1]);
+//}
 chanfer=1;
 chanfer_angle=4;
 bottom_chanfer_scale=4;
@@ -106,6 +108,29 @@ module radial_array(n=4, r=0) {
         translate([r,0,0])
             children(0);
   }
+}
+
+
+//https://github.com/grahamc/openscad/blob/master/helpers/grid.scad
+//module grid(range) {
+//	for (x = [range[0]]) {
+//    for (y = [range[1]]) {
+//      for (z = [range[2]]) {
+//        echo(x);
+//        translate([x, y, z]) children();
+//      }
+//    }
+//  }
+//}
+
+module grid(x, y, space) {
+	for (i = [1:space:x * space]) {
+		for (j = [1:space:y * space]) {
+			translate([i, j, 0]) {
+				children();
+			}
+		}
+	}
 }
 
 module prism(sides=4, height=10, r=20, corner_radius=5, c2=[0,0], c3=[0,0]) {
