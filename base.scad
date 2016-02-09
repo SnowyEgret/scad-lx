@@ -36,7 +36,7 @@ print_bed_width=200;
 
 module base() {
   //%print_bed();
-  //%base_legs();
+  base_legs();
   base_less_terminal_cup();
 }
 

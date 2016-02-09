@@ -4,7 +4,7 @@ include <elbow.scad>;
 //include <cradle.scad>;
 
 //lx($fn=200);
-woofer_adapter();
+//woofer_adapter();
 //woofer_assembly();
 //woofer_section();
 //woofer_assembly();
