@@ -2,10 +2,10 @@
 
 Main parts:
 
-*fullrange_adapter.scad
-*fullrange_cap.scad
-*woofer_adapter.scad
-*base.scad
+* fullrange_adapter.scad
+* fullrange_cap.scad
+* woofer_adapter.scad
+* base.scad
 
 terminal_cup.scad closes the bottom of the base and is inset for banana plugs. I have dumped these for a speakon connector straight into the woofer pipe, but the base still needs to be closed.
 
