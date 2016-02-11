@@ -21,16 +21,22 @@ woofer_adapter();
 //woofer_wire_hole();
 
 // All parameters are defined here, not within modules.
+// Values can be changed here without compromising the topology of the model (in theory)
 // If a parameter is not defined here, it is defined in an imported file.
 woofer_ring_height=42;
 woofer_ring_width=13;
 woofer_ring_frame_inset=3;
+// This parameter is derived from two parameters, both imported with lx.scad
+// woofer_frame_* names refer to the dimensions of the steel frame of the woofer
+// A derived parameter should not be modified.
 woofer_ring_inner_radius=woofer_frame_diameter/2 - woofer_frame_width_at_mounting_holes;
 woofer_ring_outer_radius=woofer_ring_inner_radius+woofer_ring_width;
 
 woofer_post_radius=15;
 woofer_post_oval_scale=1.3;
 woofer_post_long_radius=woofer_post_radius*woofer_post_oval_scale;
+// Again a parameter derived from parameters imported from lx.scad
+// All fullrange_* names refer to dimensions of the fullrange driver and associated parts
 woofer_post_height=
   woofer_ring_height
   -woofer_ring_frame_inset
@@ -49,6 +55,7 @@ woofer_ring_wire_hole_x_offset=
     fullrange_back_from_center+
     fullrange_frame_to_pipe+
     fullrange_pipe_length/2;
+// This might have to be adjusted if you play with other parameters
 woofer_ring_wire_hole_z_offset=-14;
 
 // Top level assembly for printing
