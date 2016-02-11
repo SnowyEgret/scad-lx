@@ -1,21 +1,31 @@
 # scad-lx
 
-Main parts:
+Files:
 
-* fullrange_adapter.scad
-* fullrange_cap.scad
-* woofer_adapter.scad
-* base.scad
+## woofer_adapter.scad
+Connects the rubber coupler to the woofer and fullrange diffuser.
 
-terminal_cup.scad closes the bottom of the base and is inset for banana plugs. I have dumped these for a speakon connector straight into the woofer pipe, but the base still needs to be closed.
+## base.scad
+Connects to the bottom of the woofer pipe and has 3 or more legs with holes for insetings threaded inserts for adjustable feet. It has an opening underneath for accessing the interior of the pipe and is closed by a terminal cup with mounts for banana plugs.
 
-cradle.scad is no longer used and woofer_cover I have never printed.
+## fullrange_adapter.scad
+Mounts the fullrange driver to the diffuser. Openings behind the driver allow sound to propagate to the rear.
+## fullrange_cap.scad
+Caps the rear end of the diffuser
+## terminal_cup.scad
+Closes the bottom of the base and has holes and mounts for banana plugs. If a SpeakON connector is mounted on the woofer pipe, then the banana plugs are not necessary.
 
-plumbing.scad contains modules for abs pipes and the rubber connector.
+## cradle.scad
+Deprecated. The woofer adapter mounts directly to the diffuser now.
 
-util.scad contains generic utility modules.
+## plumbing.scad
+Contains modules for abs pipe and the rubber connector.
 
-lx.scad contains all critical dimensions as defined by SL
+## util.scad
+Generic utility modules.
+
+## lx.scad
+Drivers and all critical dimensions of SL design
 
 IN GENERAL all files are organized as such:
 
