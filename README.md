@@ -6,7 +6,7 @@ Connects the rubber coupler to the woofer and fullrange diffuser.
 ![woofer_adapter](/images/woofer_adapter.png)
 
 ### base.scad
-Connects to the bottom of the woofer pipe and has 3 or more legs with holes for insetings threaded inserts for adjustable feet. It has an opening underneath for accessing the interior of the pipe and is closed by a terminal cup with mounts for banana plugs.
+Connects to the bottom of the woofer pipe and has 3 or more legs with holes for insetings threaded inserts for adjustable feet. Has an opening underneath for accessing the interior of the pipe and is closed by a terminal cups. Unless your printer has an enormous bed, the ring and legs will have to be printed separately.
 
 ![base](/images/base.png)
 
@@ -31,18 +31,14 @@ Deprecated. The woofer adapter mounts directly to the diffuser now.
 ### lx.scad
 Critical dimensions of SL design and drivers.
 
-![lx](/images/lx.png)
-
 ### plumbing.scad
-Contains modules for abs pipe and the rubber connector.
-
-![plumbing](/images/plumbing.png)
+ABS pipe and the rubber connector.
 
 ### util.scad
 Generic utility modules.
 
-## IN GENERAL
-Parameters are defined at the top of the file, after the includes. Modules follow, and are ordered from highest assembly to lowest.
+## Notes
+Parameters are defined at the top of each file, after the includes. Modules follow, and are ordered from highest assembly to lowest. The call to the top level module might need uncommenting if the file is drawing nothing (immeadiatly after includes). OpenSCAD exports stl for printing.
 
 
 
