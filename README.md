@@ -6,7 +6,7 @@ Connects the rubber coupler to the woofer and fullrange diffuser.
 ![woofer_adapter](/images/woofer_adapter.png)
 
 ### base.scad
-Connects to the bottom of the woofer pipe and has 3 or more legs with holes for insetings threaded inserts for adjustable feet. Has an opening underneath for accessing the interior of the pipe and is closed by a terminal cups. Unless your printer has an enormous bed, the ring and legs will have to be printed separately.
+Connects to the bottom of the woofer pipe and has 3 or more legs with holes for insetings threaded inserts for adjustable feet. Has an opening underneath for accessing the interior of the pipe and is closed by a terminal cups. Unless your printer has an enormous bed, the ring and legs will have to be printed separately. Should be printed upside down.
 
 ![base](/images/base.png)
 
@@ -25,6 +25,9 @@ Closes the bottom of the base and has recesses and mounts for banana plugs. If a
 
 ![terminal_cup](/images/terminal_cup.png)
 
+### woofer_cover
+A cover which fits over the woofer adapter and protects the woofer from damage. Not intended to be used operationaly. Has a configurable logo. Should be printed upside down. (I have never printed one of these)
+
 ### cradle.scad
 Deprecated. The woofer adapter mounts directly to the diffuser now.
 
@@ -38,7 +41,7 @@ ABS pipe and the rubber connector.
 Generic utility modules.
 
 ## Notes
-Parameters are defined at the top of each file, after the includes. Modules follow, and are ordered from highest assembly to lowest. The call to the top level module might need uncommenting if the file is drawing nothing (immeadiatly after includes). OpenSCAD exports stl for printing.
+Parameters are defined at the top of each file, after the includes. Modules follow, and are ordered from highest assembly to lowest. The call to the top level module might need uncommenting if the file is drawing nothing (immediatly after includes). If the file is included, you might want to comment out these calls to prevent it from being drawn. OpenSCAD exports stl for printing.
 
 
 
