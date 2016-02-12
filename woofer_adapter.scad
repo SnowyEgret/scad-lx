@@ -13,7 +13,7 @@ include <elbow.scad>;
 
 // Uncomment the top level assembly to print the woofer adapter. Sub-assemblies can be uncommented to be viewed independently
 // File must be saved before OpenSCAD will re-render
-woofer_adapter();
+//woofer_adapter();
 //woofer_assembly();
 //woofer_section();
 //woofer_assembly();

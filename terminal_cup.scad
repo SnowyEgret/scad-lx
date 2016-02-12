@@ -2,7 +2,7 @@ include <util.scad>;
 include <lx.scad>;
 
 //Screw holes and radius_tolerance build positive solid to difference with external object
-//terminal_cup($fn=120);
+terminal_cup($fn=120);
 //cup_part_of_shaft_removed($fn=120);
 //terminal_cup(screw_holes=true, radius_tolerance=2, $fn=120);
 //terminal_cup_gasket($fn=120);

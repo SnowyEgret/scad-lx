@@ -1,7 +1,7 @@
 include <plumbing.scad>;
 include <util.scad>;
 
-lx($fn=200);
+//lx($fn=200);
 //fullrange($fn=200);
 //fullrange_pipe(inner_tol=-1, $fn=200);
 //woofer($fn=200);
