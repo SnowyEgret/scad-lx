@@ -1,7 +1,7 @@
 include <plumbing.scad>;
 include <util.scad>;
 
-//lx($fn=200);
+lx($fn=200);
 //fullrange($fn=200);
 //fullrange_pipe(inner_tol=-1, $fn=200);
 //woofer($fn=200);
@@ -95,7 +95,7 @@ module fullrange_pipe(inner_tol=0, outer_tol=0) {
     );
     //Slot
     translate([
-      fullrange_pipe_outer_radius+tol-fullrange_pipe_groove_depth,
+      fullrange_pipe_outer_radius+coupler_tol-fullrange_pipe_groove_depth,
       -fullrange_pipe_groove_width/2,
       0])
     fullrange_pipe_slot();

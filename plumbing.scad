@@ -8,6 +8,7 @@
 
 // All parameters defined here, not within modules
 // Adjust to dimensions of coupler purchased
+// These dimensions are for an ABS to cast iron adapter (not clay)
 coupler_id_large=122;
 coupler_id_small=111;
 coupler_thickness=8.3;
@@ -22,7 +23,7 @@ coupler_clamp_depth=1.8;
 // Remember, this solid will be differenced with woofer adapter, so the bigger it is, the smaller the adapter is.
 coupler_tol=1;
 
-
+// Creates the solid geometry for the rubber coupler for connecting the woofer pipe to the woofer and fullrange diffuser.
 module coupler(r1=coupler_id_small/2, r2=coupler_id_large/2) {
   translate([0,0,-(2*coupler_outer_profile_height+coupler_center_profile_height)])
   rotate_extrude()
@@ -57,7 +58,7 @@ module coupler_center_profile(t=coupler_thickness, h=coupler_center_profile_heig
   ]);
 }
 
-// Used by plumbing module to create woofer and fullrange diffuser pipes
+// Used by plumbing module to create woofer and fullrange diffuser pipes 
 module abs_pipe(r, t, h) {
   difference() {
     cylinder(r=r+t, h=h);
