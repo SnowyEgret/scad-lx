@@ -37,11 +37,14 @@ Critical dimensions of SL design and drivers.
 ### plumbing.scad
 ABS pipe and the rubber connector.
 
+### elbow.scad
+An elbow with cylindrical extensions. Used by woofer_adapter to created the hole for the fullrange driver wires.
+
 ### util.scad
-Generic utility modules.
+Generic utility modules. Used directly or indirectly by most high level assemblies.
 
 ## Notes
-These models are all parametric. Pretty well anything is configurable including the number of legs on the base. The ABS pipe and rubber coupler should be purchased and measured amd their dimensions set before printing. I started my prints and aborted them after a few layers to make sure there was a tight fit to the ABS pipes. Parameters are defined at the top of each file, after the includes. Modules follow, and are ordered from highest assembly to lowest. The call to the top level module might need uncommenting if the file is drawing nothing (immediatly after includes). If the file is included, you might want to comment out these calls to prevent it from being drawn. There are not .stl files here. OpenSCAD exports stl for printing.
+These models are all parametric. Pretty well anything is configurable including the number of legs on the base. The ABS pipe and rubber coupler should be purchased and measured amd their dimensions set before printing. I started my prints and aborted them after a few layers to make sure there was a tight fit to the ABS pipes. Parameters are defined at the top of each file, after the includes. Modules follow, and are ordered from highest assembly to lowest. The call to the top level module might need uncommenting if the file is drawing nothing (immediatly after includes). If the file is included, you might want to comment out these calls to prevent it from being drawn. There are no .stl files provided. OpenSCAD exports stl for printing.
 
 
 
